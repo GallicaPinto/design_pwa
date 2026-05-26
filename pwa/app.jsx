@@ -42,9 +42,17 @@ function App() {
       case 'capture':        return <ScreenCapture navigate={navigate} back={back} />;
       case 'loading':        return <ScreenLoading navigate={navigate} />;
       case 'result':         return <ScreenResult back={back} dense={dense} />;
-      case 'stats':          return <ScreenStats dense={dense} />;
+      case 'stats':          return <ScreenStats navigate={navigate} dense={dense} />;
       case 'profile':        return <ScreenProfile navigate={navigate} proMode={proMode} />;
       case 'patient-detail': return <ScreenPatientDetail back={back} />;
+      case 'holistic':       return <ScreenHolistic navigate={navigate} back={back} />;
+      case 'journal':        return <ScreenJournalEntry back={back} />;
+      case 'mindful':        return <ScreenMindful back={back} />;
+      case 'glycemia':       return <ScreenGlycemia back={back} />;
+      case 'plants':         return <ScreenPlantDiversity back={back} />;
+      case 'fasting':        return <ScreenFastingWindow back={back} />;
+      case 'correl':         return <ScreenCorrelations back={back} />;
+      case 'inflam':         return <ScreenInflammation back={back} />;
       default:               return <ScreenToday navigate={navigate} dense={dense} />;
     }
   }

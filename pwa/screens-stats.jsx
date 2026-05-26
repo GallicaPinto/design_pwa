@@ -1,6 +1,6 @@
 // Plate Analyzer — Stats screens (Weekly + Monthly + History)
 
-function ScreenStats({ dense = false }) {
+function ScreenStats({ navigate, dense = false }) {
   const [view, setView] = React.useState('weekly');
 
   const TABS = [
@@ -43,6 +43,28 @@ function ScreenStats({ dense = false }) {
       {view === 'monthly' && <MonthlyContent dense={dense} label="Mai 2026 · J−12" />}
       {view === '90j' && <MonthlyContent dense={dense} label="Fév – Mai 2026 · 90j" is90j />}
       {view === 'history' && <HistoryContent />}
+
+      {/* Holistic health entry point */}
+      <div style={{ padding: '4px 16px 24px' }}>
+        <button onClick={() => navigate('holistic')} style={{
+          display: 'flex', alignItems: 'center', gap: 14, width: '100%', textAlign: 'left',
+          padding: '14px 16px',
+          background: 'linear-gradient(135deg, rgba(196,181,253,0.08), rgba(125,211,252,0.05))',
+          border: '1px solid var(--accent-line)', borderRadius: 14, cursor: 'pointer',
+        }}>
+          <div style={{ width: 44, height: 44, borderRadius: 12, flexShrink: 0, background: 'var(--accent-soft)', color: 'var(--accent)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+              <path d="M12 21a9 9 0 100-18 9 9 0 000 18z"/><path d="M8 13s1 2 4 2 4-2 4-2M9 9h.01M15 9h.01"/>
+            </svg>
+          </div>
+          <div style={{ flex: 1 }}>
+            <div style={{ fontFamily: 'var(--mono)', fontSize: 9, color: 'var(--accent)', textTransform: 'uppercase', letterSpacing: '0.12em', marginBottom: 3 }}>Analyse avancée</div>
+            <div style={{ fontSize: 14, fontWeight: 600, color: 'var(--text-1)', letterSpacing: '-0.01em' }}>Santé globale · holistique</div>
+            <div style={{ fontFamily: 'var(--mono)', fontSize: 10, color: 'var(--text-3)', marginTop: 3 }}>Journal · Mindful · Glycémie · Microbiote · TRE · Corrélations · DII</div>
+          </div>
+          <svg width="6" height="10" viewBox="0 0 6 10" style={{ opacity: 0.4, flexShrink: 0 }}><path d="M1 1l4 4-4 4" stroke="currentColor" strokeWidth="1.2" fill="none"/></svg>
+        </button>
+      </div>
     </div>
   );
 }
